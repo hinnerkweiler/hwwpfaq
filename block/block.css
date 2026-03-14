@@ -1,0 +1,151 @@
+/* =============================================================================
+   HW WP FAQ – Frontend Block Styles
+   Intentionally minimal: provides structural defaults only so that a theme
+   can fully override all visual properties targeting the BEM class names.
+
+   Class reference:
+     .hwwpfaq                     Outermost wrapper (also has .wp-block-hwwpfaq-faq)
+     .hwwpfaq--empty              Modifier for wrapper when no entries are found
+     .hwwpfaq__category           One <section> per category
+     .hwwpfaq__category-title     Category heading (<h2>)
+     .hwwpfaq__list               The <dl> containing all items in a category
+     .hwwpfaq__item               <div> wrapping one dt+dd pair
+     .hwwpfaq__question           The question (<dt>)
+     .hwwpfaq__answer             The answer (<dd>), may contain rich text
+   ============================================================================= */
+
+/* Outer wrapper – theme may add padding/background via block supports */
+.hwwpfaq {
+	/* intentionally empty; block supports handle spacing & colour */
+}
+
+/* Space between sibling category sections */
+.hwwpfaq__category + .hwwpfaq__category {
+	margin-top: 2em;
+}
+
+/* Category heading – theme should override font-size, colour, border etc. */
+.hwwpfaq__category-title {
+	margin-bottom: 0.75em;
+}
+
+/* Definition list: reset browser defaults */
+.hwwpfaq__list {
+	margin: 0;
+	padding: 0;
+}
+
+/* Individual item wrapper */
+.hwwpfaq__item {
+	margin-bottom: 1.25em;
+}
+
+.hwwpfaq__item:last-child {
+	margin-bottom: 0;
+}
+
+/* Question term */
+.hwwpfaq__question {
+	font-weight: bold;
+	margin-bottom: 0.25em;
+}
+
+/* Answer description: reset <dd> left indent */
+.hwwpfaq__answer {
+	margin-inline-start: 0;
+	margin-left: 0; /* legacy browsers */
+}
+
+/* Empty-state message */
+.hwwpfaq--empty p {
+	font-style: italic;
+	opacity: 0.7;
+}
+
+/* ---- Image alignment inside answers ----------------------------------------
+   TinyMCE / the media library adds these WP core classes to inserted images.
+   We define them here so alignment works regardless of the active theme.
+   ---------------------------------------------------------------------------- */
+.hwwpfaq__answer img {
+	max-width: 100%;
+	height: auto;
+}
+
+.hwwpfaq__answer .alignright,
+.hwwpfaq__answer img.alignright {
+	float: right;
+	margin: 0 0 1em 1.5em;
+	clear: right;
+}
+
+.hwwpfaq__answer .alignleft,
+.hwwpfaq__answer img.alignleft {
+	float: left;
+	margin: 0 1.5em 1em 0;
+	clear: left;
+}
+
+.hwwpfaq__answer .aligncenter,
+.hwwpfaq__answer img.aligncenter {
+	display: block;
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.hwwpfaq__answer .alignnone,
+.hwwpfaq__answer img.alignnone {
+	float: none;
+}
+
+/* WP caption wrapper (wp-caption / wp-block-image figcaption) */
+.hwwpfaq__answer .wp-caption {
+	max-width: 100%;
+	height: auto;
+}
+
+.hwwpfaq__answer .wp-caption.alignright {
+	float: right;
+	margin: 0 0 1em 1.5em;
+}
+
+.hwwpfaq__answer .wp-caption.alignleft {
+	float: left;
+	margin: 0 1.5em 1em 0;
+}
+
+.hwwpfaq__answer .wp-caption.aligncenter {
+	display: block;
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.hwwpfaq__answer .wp-caption-text {
+	font-size: 0.85em;
+	text-align: center;
+	margin-top: 0.25em;
+}
+
+/* Clearfix so floated images don't overflow the answer container */
+.hwwpfaq__answer::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/* Editor placeholder (shown only inside the block editor, not on frontend) */
+.hwwpfaq-editor-placeholder {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 1em;
+	border: 1px dashed currentColor;
+	opacity: 0.6;
+}
+
+.hwwpfaq-editor-placeholder .dashicons {
+	font-size: 1.5em;
+	width: 1.5em;
+	height: 1.5em;
+}

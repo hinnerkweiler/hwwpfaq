@@ -1,0 +1,45 @@
+/* =============================================================================
+   HW WP FAQ – Admin Styles
+   Only layout and status badges; keeps WP's native look-and-feel intact.
+   ============================================================================= */
+
+/* Column widths in the list table */
+.hwwpfaq-table .column-id       { width: 4%;  }
+.hwwpfaq-table .column-category { width: 12%; }
+.hwwpfaq-table .column-question { width: 30%; }
+.hwwpfaq-table .column-author   { width: 11%; }
+.hwwpfaq-table .column-pubdate  { width: 15%; }
+.hwwpfaq-table .column-status   { width: 8%;  }
+.hwwpfaq-table .column-actions  { width: 20%; }
+
+/* Status badge */
+.hwwpfaq-status {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.6;
+	white-space: nowrap;
+}
+
+.hwwpfaq-status--active {
+	background-color: #d1e7dd;
+	color: #0a3622;
+}
+
+.hwwpfaq-status--inactive {
+	background-color: #f8d7da;
+	color: #58151c;
+}
+
+/* Delete link colour override */
+.hwwpfaq-actions .hwwpfaq-delete-link,
+.hwwpfaq-actions .hwwpfaq-delete-link:visited {
+	color: #b32d2e;
+}
+
+.hwwpfaq-actions .hwwpfaq-delete-link:hover,
+.hwwpfaq-actions .hwwpfaq-delete-link:focus {
+	color: #dc3232;
+}

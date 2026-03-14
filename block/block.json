@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "hwwpfaq/faq",
+	"version": "1.0.0",
+	"title": "HW WP FAQ",
+	"category": "widgets",
+	"icon": "editor-help",
+	"description": "Display FAQ entries from the database, optionally filtered by category.",
+	"keywords": [ "faq", "questions", "answers", "accordion" ],
+	"textdomain": "hwwpfaq",
+	"attributes": {
+		"category": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"editorScript": "file:./editor.js",
+	"style": "file:./block.css",
+	"render": "file:./render.php"
+}
